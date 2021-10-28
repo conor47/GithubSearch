@@ -4,17 +4,34 @@ import { userContext } from '../context/context';
 import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
 const Repos = () => {
   const { repos } = React.useContext(userContext);
-  console.log(repos);
+
+  // aggregating the languages used accross the repos
+  let languages = repos.reduce((total, item) => {
+    const { language } = item;
+    if (!language) return total;
+    if (!(language in total)) total[language] = { label: language, value: 1 };
+    else total[language].value += 1;
+    return total;
+  }, {});
+
+  languages = Object.values(languages)
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 5);
+
+  console.log(languages);
+
+  const chartData = [
+    { label: 'html', value: 20 },
+    { label: 'css', value: 35 },
+    { label: 'javascript', value: 50 },
+    { label: 'python', value: 26 },
+    { label: 'sql', value: 78 },
+  ];
 
   return (
     <section className="section">
       <Wrapper className="section-center">
-        <ExampleChart
-          data={[
-            { label: 'html', value: 20 },
-            { label: 'Javascript', value: 100 },
-          ]}
-        />
+        <Pie3D data={languages} />
       </Wrapper>
     </section>
   );
