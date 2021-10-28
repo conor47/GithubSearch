@@ -14,6 +14,7 @@ const UserProvider = ({ children }) => {
   const [followers, setFollowers] = useState(mockFollowers);
   const [requests, setRequests] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({ show: false, msg: '' });
 
   const checkRequests = () => {
     axios
@@ -24,18 +25,22 @@ const UserProvider = ({ children }) => {
         } = data;
         setRequests(remaining);
         if (remaining === 0) {
-          // throw error
+          toggleError(true, 'sorry, hourly rate limit has been exceeded');
         }
       })
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    checkRequests();
-  }, []);
+  const toggleError = (show = false, msg = '') => {
+    setErrors({ show, msg });
+  };
+
+  useEffect(checkRequests, []);
 
   return (
-    <userContext.Provider value={{ githubUser, repos, followers }}>
+    <userContext.Provider
+      value={{ githubUser, repos, followers, requests, errors }}
+    >
       {children}
     </userContext.Provider>
   );
