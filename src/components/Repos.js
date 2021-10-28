@@ -7,18 +7,33 @@ const Repos = () => {
 
   // aggregating the languages used accross the repos
   let languages = repos.reduce((total, item) => {
-    const { language } = item;
+    const { language, stargazers_count } = item;
     if (!language) return total;
-    if (!(language in total)) total[language] = { label: language, value: 1 };
-    else total[language].value += 1;
+    if (!(language in total))
+      total[language] = { label: language, value: 1, stars: stargazers_count };
+    else {
+      total[language].value += 1;
+      total[language].stars += stargazers_count;
+    }
     return total;
   }, {});
 
-  languages = Object.values(languages)
+  console.log(languages);
+
+  // most popular languages
+
+  const mostUsed = Object.values(languages)
     .sort((a, b) => b.value - a.value)
     .slice(0, 5);
 
-  console.log(languages);
+  // most stars per language
+
+  const mostStars = Object.values(languages)
+    .sort((a, b) => b.stars - a.stars)
+    .map((item) => {
+      return { ...item, value: item.stars };
+    })
+    .slice(0, 5);
 
   const chartData = [
     { label: 'html', value: 20 },
@@ -31,7 +46,10 @@ const Repos = () => {
   return (
     <section className="section">
       <Wrapper className="section-center">
-        <Pie3D data={languages} />
+        <Pie3D data={mostUsed} />
+        <div>
+          <Doughnut2D data={mostStars} />
+        </div>
       </Wrapper>
     </section>
   );
