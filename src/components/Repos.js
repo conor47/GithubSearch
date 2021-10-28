@@ -6,7 +6,18 @@ const Repos = () => {
   const { repos } = React.useContext(userContext);
   console.log(repos);
 
-  return <ExampleChart />;
+  return (
+    <section className="section">
+      <Wrapper className="section-center">
+        <ExampleChart
+          data={[
+            { label: 'html', value: 20 },
+            { label: 'Javascript', value: 100 },
+          ]}
+        />
+      </Wrapper>
+    </section>
+  );
 };
 
 const Wrapper = styled.div`
