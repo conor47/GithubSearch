@@ -18,8 +18,6 @@ const Repos = () => {
     return total;
   }, {});
 
-  console.log(languages);
-
   // most popular languages
 
   const mostUsed = Object.values(languages)

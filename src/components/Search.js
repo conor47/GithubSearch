@@ -8,7 +8,8 @@ const Search = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(user);
+    if (user) {
+    }
   };
 
   return (
@@ -17,10 +18,16 @@ const Search = () => {
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <MdSearch />
-            <input type="text" placeholder="enter guthub username ... " />
+            <input
+              type="text"
+              placeholder="enter guthub username ... "
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+            />
             <button type="submit">search</button>
           </div>
         </form>
+        <h3>requests: 60/60</h3>
       </Wrapper>
     </section>
   );
