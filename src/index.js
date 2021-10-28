@@ -7,12 +7,14 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 require('dotenv').config();
 
+console.log(process.env);
+
 //
 
 ReactDOM.render(
   <Auth0Provider
-    domain={process.env.DOMAIN}
-    clientId={process.env.CLIENT_ID}
+    domain="dev-z53glv3v.us.auth0.com"
+    clientId="bBc4oZrBO8fohqaGtVDj9M8fKUhVckfb"
     redirectUri={window.location.origin}
   >
     <React.StrictMode>
