@@ -5,11 +5,12 @@ import { userContext } from '../context/context';
 
 const Search = () => {
   const [user, setUser] = useState('');
-  const { requests, errors } = React.useContext(userContext);
+  const { requests, errors, searchUser } = React.useContext(userContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (user) {
+      searchUser(user);
     }
   };
 

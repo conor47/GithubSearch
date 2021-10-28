@@ -16,6 +16,21 @@ const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({ show: false, msg: '' });
 
+  const searchUser = async (user) => {
+    toggleError();
+    try {
+      const response = await axios.get(`${rootUrl}/users/${user}`);
+      if (response) {
+        console.log(response);
+        setGithubUser(response.data);
+      } else {
+        toggleError(true, 'user does not exist');
+      }
+    } catch (err) {
+      toggleError(true, 'user does not exist');
+    }
+  };
+
   const checkRequests = () => {
     axios
       .get(`${rootUrl}/rate_limit`)
@@ -39,7 +54,7 @@ const UserProvider = ({ children }) => {
 
   return (
     <userContext.Provider
-      value={{ githubUser, repos, followers, requests, errors }}
+      value={{ githubUser, repos, followers, requests, errors, searchUser }}
     >
       {children}
     </userContext.Provider>
