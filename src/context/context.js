@@ -13,19 +13,22 @@ const UserProvider = ({ children }) => {
   const [repos, setRepos] = useState(mockRepos);
   const [followers, setFollowers] = useState(mockFollowers);
   const [requests, setRequests] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({ show: false, msg: '' });
 
   const searchUser = async (user) => {
     toggleError();
+    setIsLoading(true);
     try {
       const response = await axios.get(`${rootUrl}/users/${user}`);
       if (response) {
-        console.log(response);
         setGithubUser(response.data);
       } else {
         toggleError(true, 'user does not exist');
       }
+
+      checkRequests();
+      setIsLoading(false);
     } catch (err) {
       toggleError(true, 'user does not exist');
     }
@@ -54,7 +57,15 @@ const UserProvider = ({ children }) => {
 
   return (
     <userContext.Provider
-      value={{ githubUser, repos, followers, requests, errors, searchUser }}
+      value={{
+        githubUser,
+        repos,
+        followers,
+        requests,
+        errors,
+        searchUser,
+        isLoading,
+      }}
     >
       {children}
     </userContext.Provider>

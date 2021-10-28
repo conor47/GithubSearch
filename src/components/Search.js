@@ -5,7 +5,8 @@ import { userContext } from '../context/context';
 
 const Search = () => {
   const [user, setUser] = useState('');
-  const { requests, errors, searchUser } = React.useContext(userContext);
+  const { requests, errors, searchUser, isLoading } =
+    React.useContext(userContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +33,9 @@ const Search = () => {
               onChange={(e) => setUser(e.target.value)}
             />
             {/* conditionally render button */}
-            {requests > 0 && <button type="submit">search</button>}
+            {requests > 0 && !isLoading && (
+              <button type="submit">search</button>
+            )}
           </div>
         </form>
         <h3>requests: {requests}/60</h3>
