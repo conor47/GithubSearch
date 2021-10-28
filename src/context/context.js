@@ -23,6 +23,18 @@ const UserProvider = ({ children }) => {
       const response = await axios.get(`${rootUrl}/users/${user}`);
       if (response) {
         setGithubUser(response.data);
+        const { login, followers_url } = response.data;
+
+        const repos = await axios.get(
+          `${rootUrl}/users/${login}/repos?per_page=100`
+        );
+        setRepos(repos.data);
+
+        console.log('repos', repos);
+
+        const followers = await axios.get(`${followers_url}?per_page=100`);
+        console.log('followers', followers);
+        setFollowers(followers.data);
       } else {
         toggleError(true, 'user does not exist');
       }
