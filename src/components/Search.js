@@ -56,7 +56,7 @@ const Wrapper = styled.div`
     }
   }
   .form-control {
-    background: var(--clr-white);
+    background: #0a192f;
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
@@ -69,9 +69,14 @@ const Wrapper = styled.div`
       letter-spacing: var(--spacing);
       color: var(--clr-grey-3);
       padding: 0.25rem 0.5rem;
+      background-color: white;
+    }
+    input:focus {
+      outline: none !important;
+      border: 1px solid #64ffda;
     }
     input::placeholder {
-      color: var(--clr-grey-3);
+      color: var(--clr-grey-1);
       text-transform: capitalize;
       letter-spacing: var(--spacing);
     }
@@ -81,7 +86,7 @@ const Wrapper = styled.div`
       padding: 0.25rem 0.5rem;
       text-transform: capitalize;
       letter-spacing: var(--spacing);
-      background: var(--clr-primary-5);
+      background: #0a192f;
       color: var(--clr-white);
       transition: var(--transition);
       cursor: pointer;
@@ -92,7 +97,7 @@ const Wrapper = styled.div`
     }
 
     svg {
-      color: var(--clr-grey-5);
+      color: white;
     }
     input,
     button,

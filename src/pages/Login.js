@@ -23,6 +23,7 @@ const Wrapper = styled.section`
   min-height: 100vh;
   display: grid;
   place-items: center;
+  color: white;
   .container {
     width: 90vw;
     max-width: 600px;

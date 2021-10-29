@@ -74,7 +74,7 @@ const Wrapper = styled.article`
       margin-bottom: 0;
     }
     a {
-      color: var(--clr-primary-3);
+      color: var(--clr-primary-9);
     }
   }
 `;

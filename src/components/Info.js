@@ -72,7 +72,7 @@ const Wrapper = styled.section`
     border-radius: var(--radius);
     color: white;
     padding: 1rem 2rem;
-    background: #0a192f;
+    background: #040306;
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 3rem;
@@ -93,6 +93,8 @@ const Wrapper = styled.section`
     }
     p {
       margin-bottom: 0;
+      color: white;
+      opacity: 0.6;
       text-transform: capitalize;
     }
     .pink {

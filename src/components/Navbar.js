@@ -30,7 +30,8 @@ const Navbar = () => {
 const Wrapper = styled.nav`
   padding: 1.5rem;
   margin-bottom: 4rem;
-  background: var(--clr-white);
+  background: #0a192f;
+  color: white;
   text-align: center;
   display: grid;
   grid-template-columns: auto auto 100px;
@@ -53,8 +54,12 @@ const Wrapper = styled.nav`
     font-size: 1.2rem;
     text-transform: capitalize;
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: #64ffda;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+  }
+  button:hover {
+    opacity: 0.7;
   }
 `;
 

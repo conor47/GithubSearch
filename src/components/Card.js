@@ -57,8 +57,8 @@ const Wrapper = styled.article`
     top: 0;
     left: 0;
     transform: translateY(-100%);
-    background: var(--clr-white);
-    color: var(--clr-grey-5);
+    background: #0a192f;
+    color: white;
     border-top-right-radius: var(--radius);
     border-top-left-radius: var(--radius);
     text-transform: capitalize;
@@ -84,8 +84,8 @@ const Wrapper = styled.article`
       margin-bottom: 0;
     }
     a {
-      color: var(--clr-primary-5);
-      border: 1px solid var(--clr-primary-5);
+      color: #64ffda;
+      border: 1px solid #64ffda;
       padding: 0.25rem 0.75rem;
       border-radius: 1rem;
       text-transform: capitalize;
