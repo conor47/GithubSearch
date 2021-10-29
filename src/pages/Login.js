@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import styled from 'styled-components';
-import loginImg from '../images/login-img2.svg';
+import loginImg from '../images/login-img4.svg';
 
 const Login = () => {
   const { loginWithRedirect } = useAuth0();
@@ -10,9 +10,8 @@ const Login = () => {
     <Wrapper>
       <div className="container">
         <img src={loginImg} alt="github user" />
-        <h1>Github user</h1>
         <button className="btn" onClick={loginWithRedirect}>
-          Login / Sign Up
+          Login
         </button>
       </div>
     </Wrapper>
@@ -29,8 +28,17 @@ const Wrapper = styled.section`
     max-width: 600px;
     text-align: center;
   }
+  button {
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease-in;
+  }
+  button:hover {
+    color: #c025ff;
+  }
   img {
     margin-bottom: 2rem;
+    color: white;
   }
   h1 {
     margin-bottom: 1.5rem;
