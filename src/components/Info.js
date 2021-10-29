@@ -65,9 +65,17 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem 2rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    align-items: center;
+    justify-items: center;
+  }
   @media (min-width: 640px) {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    align-items: center;
   }
+
   .item {
     border-radius: var(--radius);
     color: white;
@@ -75,7 +83,7 @@ const Wrapper = styled.section`
     background: #040306;
     display: grid;
     grid-template-columns: auto 1fr;
-    column-gap: 3rem;
+    column-gap: 1.5rem;
     align-items: center;
     span {
       width: 3rem;
@@ -98,19 +106,19 @@ const Wrapper = styled.section`
       text-transform: capitalize;
     }
     .pink {
-      background: #ffe0f0;
+      background: #040306;
       color: #da4a91;
     }
     .green {
-      background: var(--clr-primary-10);
+      background: #040306;
       color: var(--clr-primary-5);
     }
     .purple {
-      background: #e6e6ff;
+      background: #040306;
       color: #5d55fa;
     }
     .yellow {
-      background: #fffbea;
+      background: #040306;
       color: #f0b429;
     }
   }

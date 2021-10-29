@@ -34,11 +34,14 @@ const Card = () => {
         </p>
         <p>
           <MdLocationOn></MdLocationOn>
-          {location}
+          {location || 'Earth ...'}
         </p>
-        <a href={`https:\\${blog}`}>
-          <MdLink></MdLink>Read more
-        </a>
+        {blog && (
+          <a href={`https:\\${blog}`}>
+            <MdLink></MdLink>
+            {blog}
+          </a>
+        )}
       </div>
     </Wrapper>
   );
@@ -97,6 +100,9 @@ const Wrapper = styled.article`
         color: var(--clr-white);
       }
     }
+  }
+  p {
+    color: var(--clr-grey-3);
   }
   .bio {
     color: var(--clr-grey-3);
