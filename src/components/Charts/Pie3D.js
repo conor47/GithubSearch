@@ -2,7 +2,7 @@ import React from 'react';
 import ReactFC from 'react-fusioncharts';
 import FusionCharts from 'fusioncharts';
 import Chart from 'fusioncharts/fusioncharts.charts';
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 
 ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
 
@@ -15,9 +15,10 @@ const ChartComponent = ({ data }) => {
     dataSource: {
       chart: {
         caption: 'Languages',
-        theme: 'fusion',
+        theme: 'candy',
         decimals: 0,
         pieRadius: '40%',
+        bgColor: '#0A192F',
       },
 
       data,

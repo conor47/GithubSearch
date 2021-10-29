@@ -44,7 +44,8 @@ const Card = () => {
   );
 };
 const Wrapper = styled.article`
-  background: var(--clr-white);
+  background: #0a192f;
+  color: white;
   padding: 1.5rem 2rem;
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);

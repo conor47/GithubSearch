@@ -19,6 +19,7 @@ const ChartComponent = ({ data }) => {
         doughnutRadius: '45%',
         showPercentValues: 0,
         theme: 'candy',
+        bgColor: '#0A192F',
       },
 
       data,
